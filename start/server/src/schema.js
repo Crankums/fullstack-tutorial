@@ -1,9 +1,7 @@
-const { gql } = require('apollo-server')
+const { gql } = require("apollo-server");
 
 const typeDefs = gql`
-  
   type Query {
-
     launches( # replace the current launches query with this one.
       """
       The number of results to show. Must be >= 1. Default = 20
@@ -17,7 +15,6 @@ const typeDefs = gql`
     launch(id: ID!): Launch
     me: User
   }
-
 
   """
   Simple wrapper around our list of launches that contains a cursor to the
@@ -43,18 +40,18 @@ const typeDefs = gql`
     name: String
     type: String
   }
-  
+
   type User {
     id: ID!
     email: String!
     trips: [Launch]!
   }
-  
+
   type Mission {
     name: String
     missionPatch(size: PatchSize): String
   }
-  
+
   enum PatchSize {
     SMALL
     LARGE
@@ -73,4 +70,4 @@ const typeDefs = gql`
   }
 `;
 
-module.exports = typeDefs
+module.exports = typeDefs;
